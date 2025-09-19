@@ -1,0 +1,136 @@
+.accordion-container {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media only screen and (min-width: 767.98px) {
+  .accordion-container {
+    padding: 64px 32px;
+  }
+}
+@media only screen and (min-width: 1439.8px) {
+  .accordion-container {
+    padding: 80px 64px;
+  }
+}
+
+.faq-title {
+  font-family: var(--fn-fm-sc);
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-scheme-1-text);
+}
+
+@media only screen and (min-width: 767.98px) {
+  .faq-title {
+    margin-bottom: 80px;
+  }
+}
+
+.accordion-container .ac {
+  margin-bottom: 16px;
+}
+.ac-header {
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+
+  background-color: var(--color-scheme-1-foreground);
+  padding: 1rem;
+}
+.accordion-container .ac .ac-trigger {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  min-height: 112px;
+  font: bold 16px / 1.5 var(--font-family);
+  border: none;
+  padding: 20px 72px 20px 24px;
+  background-color: var(--color-scheme-1-foreground);
+
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 767.98px) {
+  .accordion-container .ac .ac-trigger {
+    min-height: 88px;
+  }
+}
+
+@media only screen and (min-width: 1439.8px) {
+  .accordion-container .ac .ac-trigger {
+    min-height: 67px;
+  }
+}
+
+.ac-panel {
+  background: var(--color-scheme-1-foreground);
+}
+
+.ac-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 24px;
+  gap: 12px;
+}
+.ac-panel ul {
+  list-style-type: disc;
+}
+.accordion-container .ac .ac-panel .ac-text {
+  padding: 0;
+  font: 14px / 1.5 var(--font-family);
+  font-weight: 400;
+  color: var(--color-scheme-1-text);
+}
+
+.ac-text-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  font-family: var(--font-family);
+}
+
+.ac-trigger::after {
+  display: none;
+}
+
+.accordion-container .ac .ac-trigger:focus {
+  color: inherit;
+}
+
+.icon-plus {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  fill: var(--color-scheme-1-text);
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+@media only screen and (min-width: 767.98px) {
+  .icon-plus {
+    right: 32px;
+  }
+}
+
+@media only screen and (min-width: 1439.8px) {
+  .icon-plus {
+    right: 21.5px;
+  }
+}
+
+.ac.is-active .icon-plus {
+  transform: translateY(-50%) rotate(-45deg);
+}
