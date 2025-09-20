@@ -22,8 +22,8 @@ export function markupComment(data) {
   const markup = data
     .map(res => {
       return `
-        <div class="swiper-slide">
-          <p>${res.description}</p>
+        <div class="swiper-slide swiper-comment-slide">
+          <p class="description-comment">${res.description}</p>
           <p class='author-comment'>${res.author}</p>
         </div>
       `;
@@ -38,7 +38,7 @@ getAPI().then(data => {
   new Swiper('.stories-swiper', {
     loop: false,
     slidesPerView: 1,
-    spaceBetween: 20,
+
     navigation: {
       nextEl: '.stories-next',
       prevEl: '.stories-prev',
@@ -50,6 +50,7 @@ getAPI().then(data => {
     breakpoints: {
       768: {
         slidesPerView: 2,
+        spaceBetween: 32,
       },
     },
   });
