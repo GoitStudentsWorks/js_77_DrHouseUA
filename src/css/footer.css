@@ -7,6 +7,12 @@
 }
 .footer-logo {
   margin-bottom: 32px;
+  width: 302px;
+  height: 129px;
+}
+.footer-img-logo {
+  width: 100%;
+  height: 100%;
 }
 .footer-menu {
   display: flex;
@@ -43,5 +49,5 @@
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 12px;
   color: #02060a;
-  margin: 32px 0px;
+  margin: 30px 0px;
 }
