@@ -175,7 +175,7 @@
   }
 }
 
-.swiper-pagination.swiper-cusstom-pagination {
+.swiper-pagination.swiper-about-pagination {
   position: relative;
   display: flex !important;
   justify-content: center;
@@ -185,7 +185,7 @@
 }
 
 @media only screen and (min-width: 767.98px) {
-  .swiper-pagination.swiper-cusstom-pagination {
+  .swiper-pagination.swiper-about-pagination {
     margin: 0 auto;
   }
 }
@@ -212,8 +212,8 @@
   gap: 8px;
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+.swiper-about-button-prev,
+.swiper-about-button-next {
   position: relative !important;
   width: 48px !important;
   height: 48px !important ;
@@ -250,8 +250,8 @@
     pointer-events: none;
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
+  .swiper-about-button-prev,
+  .swiper-about-button-next {
     pointer-events: all;
 
     top: 50%;
@@ -262,11 +262,11 @@
     transition: stroke 0.3s ease;
   }
 
-  .swiper-button-prev {
+  .swiper-about-button-prev {
     left: 0;
   }
 
-  .swiper-button-next {
+  .swiper-about-button-next {
     right: 0;
   }
 }
@@ -276,26 +276,26 @@
     position: absolute !important;
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
+  .swiper-about-button-prev,
+  .swiper-about-button-next {
     position: absolute !important;
     top: -226px;
   }
-  .swiper-button-prev {
+  .swiper-about-button-prev {
     left: -25px;
   }
 
-  .swiper-button-next {
+  .swiper-about-button-next {
     right: -480px;
   }
 }
 
 @media only screen and (min-width: 1439.9px) {
-  .swiper-button-prev,
-  .swiper-button-next {
+  .swiper-about-button-prev,
+  .swiper-about-button-next {
     top: calc(0px - 753px / 2 - 48px / 2 - 48px);
   }
-  .swiper-button-next {
+  .swiper-about-button-next {
     right: -1090px;
   }
 }
