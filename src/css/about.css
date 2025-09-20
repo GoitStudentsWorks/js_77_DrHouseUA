@@ -192,10 +192,10 @@
 
 .swiper-pagination-bullet {
   width: 12px;
-  height: 12px;
+  height: 10px;
   background-color: #999;
   opacity: 1;
-  border-radius: 0; /* квадратні булети */
+  border-radius: 12;
   margin: 0 4px;
 }
 
