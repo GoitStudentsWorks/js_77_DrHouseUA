@@ -26,26 +26,27 @@
   }
 }
 
-.swiper {
+.swiper-about {
   width: 100%;
   height: 402px;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
 @media only screen and (min-width: 1439.9px) {
-  .swiper {
+  .swiper-about {
     height: 404px;
   }
 }
 
 @media only screen and (min-width: 1439.9px) {
-  .swiper {
+  .swiper-about {
     margin-bottom: 48px;
     height: 753px;
   }
 }
 
-.swiper-slide {
+.swiper-slide-about {
   text-align: center;
   font-size: 18px;
   background: #444;
@@ -157,9 +158,11 @@
   .swiper-block3 {
     background-image: url('../img/slider/slider-3-2x.webp');
   }
+
   .swiper-block4 {
     background-image: url('../img/slider/slider-4-2x.webp');
   }
+
   .swiper-block5 {
     background-image: url('../img/slider/slider-5-2x.webp');
   }
