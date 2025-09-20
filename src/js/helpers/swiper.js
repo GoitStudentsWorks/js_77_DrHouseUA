@@ -5,7 +5,7 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 // init Swiper:
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper-about', {
   // configure Swiper to use modules
 
   navigation: {
