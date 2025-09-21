@@ -23,72 +23,18 @@ export function markupComment(data) {
   const markup = data
     .map(res => {
       return `
-        <div class="swiper-slide swiper-comment-slide">
-  <div class="rating value-${res.rate} star-svg half small">
-    <div class="star-container">
-      <div class="star">
-            <svg class="star-empty">
-                <use href="/star-rating.icons.svg#star-empty"></use>
-            </svg>
-            <svg class="star-half">
-                <use href="/star-rating.icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-                <use href="/star-rating.icons.svg#star-filled"></use>
-            </svg>
-        </div>
-      <div class="star">
-        <svg class="star-empty" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-outline"></use>
-        </svg>
-        <svg class="star-half" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-half"></use>
-        </svg>
-        <svg class="star-filled" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-filled"></use>
-        </svg>
-      </div>
-        <div class="star">
-        <svg class="star-empty" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-outline"></use>
-        </svg>
-        <svg class="star-half" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-half"></use>
-        </svg>
-        <svg class="star-filled" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-filled"></use>
-        </svg>
-      </div>
-         <div class="star">
-        <svg class="star-empty" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-outline"></use>
-        </svg>
-        <svg class="star-half" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-half"></use>
-        </svg>
-        <svg class="star-filled" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-filled"></use>
-        </svg>
-      </div>
-            <div class="star">
-        <svg class="star-empty" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-outline"></use>
-        </svg>
-        <svg class="star-half" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-half"></use>
-        </svg>
-        <svg class="star-filled" width="20px" height="19px">
-          <use href="../svg/icons.svg#icon-star-filled"></use>
-        </svg>
-      </div>
-            </div>
-          </div>
-          <div>
-            <p class="description-comment">${res.description}</p>
-            <p class="author-comment">${res.author}</p>
+      <div class="swiper-slide swiper-comment-slide">
+        <div class="rating value-${res.rate} star-svg half small">
+          <div class="star-container">
+            ${generateStars(res.rate)}
           </div>
         </div>
-      `;
+        <div>
+          <p class="description-comment">${res.description}</p>
+          <p class="author-comment">${res.author}</p>
+        </div>
+      </div>
+    `;
     })
     .join('');
   container.insertAdjacentHTML('beforeend', markup);
@@ -103,8 +49,8 @@ getAPI().then(data => {
     slidesPerView: 1,
 
     navigation: {
-      nextEl: '.stories-next',
-      prevEl: '.stories-prev',
+      nextEl: '.swiper-comment-button-next',
+      prevEl: '.swiper-comment-button-prev',
     },
     pagination: {
       el: '.stories-pagination',
@@ -119,3 +65,40 @@ getAPI().then(data => {
     },
   });
 });
+
+function generateStars(rate) {
+  const fullStars = Math.floor(rate);
+  const halfStar = rate % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+  let stars = '';
+
+  for (let i = 0; i < fullStars; i++) {
+    stars += `
+      <div class="star">
+        <svg class="star-filled" width="20" height="19">
+          <use href="../svg/icons.svg#icon-star-filled"></use>
+        </svg>
+      </div>`;
+  }
+
+  if (halfStar) {
+    stars += `
+      <div class="star">
+        <svg class="star-half" width="20" height="19">
+          <use href="../svg/icons.svg#icon-star-half"></use>
+        </svg>
+      </div>`;
+  }
+
+  for (let i = 0; i < emptyStars; i++) {
+    stars += `
+      <div class="star">
+        <svg class="star-empty" width="20" height="19">
+          <use href="../svg/icons.svg#icon-star-outline"></use>
+        </svg>
+      </div>`;
+  }
+
+  return stars;
+}
