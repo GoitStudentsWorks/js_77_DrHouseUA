@@ -33,3 +33,14 @@
   font-size: 14px;
   line-height: 1.5;
 }
+
+.navigation-wrapper-comment {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation-wrapper-comment button {
+  width: 48px;
+  height: 48px;
+  background-color: blueviolet;
+}
