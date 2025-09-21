@@ -12,9 +12,11 @@ const api = axios.create({
   headers: { accept: 'application/json' },
 });
 
-let allPets = [];
+let allPets = []; // для "Всі"
 let currentCategory = 'Всі';
 let currentPage = 1;
+let totalPages = 1;
+let categoryPets = []; // для інших категорій
 
 function getLimit() {
   return window.innerWidth >= 1440 ? 9 : 8;
@@ -30,12 +32,16 @@ function renderCards(pets) {
     card.classList.add('pet-card');
     card.innerHTML = `
       <div class="card-img-wrapper">
-        <img class="pet-card-image" src="${pet.image}" alt="Фото ${pet.name}, ${pet.age}, ${pet.gender}" />
+        <img class="pet-card-image" src="${
+          pet.image || 'default.jpg'
+        }" alt="Фото ${pet.name}, ${pet.age}, ${pet.gender}" />
       </div>
       <div class="pet-card-info">
         <span class="pet-card-type">${pet.species}</span>
         <h3 class="pet-card-name">${pet.name}</h3>
-        <span class="pet-category">${pet.categories[0].name}</span>
+        <span class="pet-category">${
+          pet.categories?.[0]?.name || 'Без категорії'
+        }</span>
         <div class="pet-card-meta">
           <p class="pet-card-age">${pet.age}</p>
           <p class="pet-card-gender">${pet.gender}</p>
@@ -47,51 +53,84 @@ function renderCards(pets) {
   });
 }
 
-function renderFilteredCards() {
+function filterPetsByCategory(categoryName, petsArray) {
+  console.log(categoryName);
+  console.log(petsArray);
+  if (categoryName === 'Всі') return petsArray;
+  return petsArray.filter(pet =>
+    pet.categories.some(cat => cat.name === categoryName)
+  );
+}
+
+// 🔁 Рендер для "Всі"
+function renderFilteredCards(totalPages) {
   const limit = getLimit();
+  const filtered = filterPetsByCategory(currentCategory, allPets);
+  const petsToRender = filtered.slice(0, currentPage * limit);
 
-  const filtered =
-    currentCategory === 'Всі'
-      ? allPets
-      : allPets.filter(pet =>
-          pet.categories.some(cat => cat.name === currentCategory)
-        );
-
-  const totalPages = Math.ceil(filtered.length / limit);
-  const startIndex = (currentPage - 1) * limit;
-  const endIndex = startIndex + limit;
-  const petsToRender = filtered.slice(startIndex, endIndex);
-
+  clearGallery();
   renderCards(petsToRender);
-
+  // console.log(filtered.length);
+  const localTotalPages = Math.ceil(filtered.length / limit);
   showMoreBtn.style.display = currentPage >= totalPages ? 'none' : 'block';
 }
 
-async function fetchPets() {
+// 🌐 Запит для "Всі"
+async function fetchPets(page = 1) {
   try {
-    const response = await api.get('api/animals');
-    allPets = response.data.animals || [];
-    renderFilteredCards();
+    const limit = getLimit();
+    const response = await api.get('api/animals', {
+      params: { page, limit },
+    });
+
+    const newPets = response.data.animals || [];
+    const totalItems = response.data.totalItems || 0;
+    totalPages = Math.ceil(totalItems / limit);
+    console.log(totalPages);
+    allPets = [...allPets, ...newPets];
+    renderFilteredCards(totalPages);
   } catch (error) {
     iziToast.error({
       title: 'Помилка',
-      message: 'Не вдалося завантажити тваринок. Спробуйте пізніше.',
+      message: 'Не вдалося завантажити тваринок.',
       position: 'topRight',
     });
     console.error('Axios error:', error);
   }
 }
 
-async function fetchCategories() {
+// 🌐 Запит для конкретної категорії
+async function fetchPetsForCategory(categoryName, page = 1) {
   try {
-    const response = await api.get('api/categories');
-    const categories = response.data || [];
-    renderCategoryButtons(['Всі', ...categories.map(c => c.name)]);
+    const limit = getLimit();
+    const response = await api.get('api/animals', {
+      params: { page, limit },
+    });
+
+    const newPets = response.data.animals || [];
+    console.log(newPets);
+    const filtered = filterPetsByCategory(categoryName, newPets);
+
+    if (page === 1) categoryPets = []; // скидаємо при новому виборі
+    categoryPets = [...categoryPets, ...filtered];
+
+    const petsToRender = categoryPets.slice(0, page * limit);
+    clearGallery();
+    renderCards(petsToRender);
+
+    const localTotalPages = Math.ceil(categoryPets.length / limit);
+    showMoreBtn.style.display = page >= localTotalPages ? 'none' : 'block';
   } catch (error) {
-    console.error('Помилка завантаження категорій:', error);
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити категорію.',
+      position: 'topRight',
+    });
+    console.error('Axios error:', error);
   }
 }
 
+// 🧭 Кнопки категорій
 function renderCategoryButtons(names) {
   categoryContainer.innerHTML = '';
   names.forEach(name => {
@@ -109,19 +148,40 @@ function renderCategoryButtons(names) {
 
       currentCategory = name;
       currentPage = 1;
-      clearGallery();
-      renderFilteredCards();
+
+      if (name === 'Всі') {
+        renderFilteredCards();
+      } else {
+        fetchPetsForCategory(name, currentPage);
+      }
     });
 
     categoryContainer.appendChild(btn);
   });
 }
 
+// ➕ Кнопка "Завантажити ще"
 showMoreBtn.addEventListener('click', () => {
   currentPage += 1;
-  renderFilteredCards();
+
+  if (currentCategory === 'Всі') {
+    fetchPets(currentPage);
+  } else {
+    fetchPetsForCategory(currentCategory, currentPage);
+  }
 });
 
-// Старт
+// 🚀 Старт
 fetchCategories();
-fetchPets();
+fetchPets(currentPage);
+
+// 📂 Категорії
+async function fetchCategories() {
+  try {
+    const response = await api.get('api/categories');
+    const categories = response.data || [];
+    renderCategoryButtons(['Всі', ...categories.map(c => c.name)]);
+  } catch (error) {
+    console.error('Помилка завантаження категорій:', error);
+  }
+}
