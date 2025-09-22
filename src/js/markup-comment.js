@@ -9,7 +9,6 @@ export function getAPI() {
   return axios
     .get('/api/feedbacks')
     .then(response => {
-      console.log(response.data.feedbacks);
       return response.data.feedbacks;
     })
     .catch(error => {
