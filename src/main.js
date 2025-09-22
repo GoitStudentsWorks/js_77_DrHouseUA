@@ -8,4 +8,4 @@ import './js/mobile';
 import './js/markup-comment';
 import './js/helpers/swiper-comment';
 import './js/petslist';
-
+import './js/pet-details-btn';
