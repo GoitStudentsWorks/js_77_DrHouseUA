@@ -1,4 +1,4 @@
-.about,
+/* .about, */
 .hero-section,
 .faq,
 /* .pets-list, */
@@ -47,9 +47,9 @@
 
 .about,
 /* .hero, */
-/* .petslist, */
+.petslist,
 .stories,
-/* .header, */
+.header,
 /* .footer, */
 .faq {
   display: inherit;

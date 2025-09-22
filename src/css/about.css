@@ -127,8 +127,8 @@
 
 .swiper-block3 {
   background-image: url('../img/slider/slider-3-1x.webp');
-  background-size: 200%;
-  background-position-x: -125px;
+  background-size: 210%;
+  background-position-x: -145px;
 }
 
 @media only screen and (min-width: 767.9px) {
@@ -212,7 +212,7 @@
   justify-content: end;
   margin-top: 20px;
   position: relative;
-  gap: 8px;
+  gap: 16px;
 }
 
 .swiper-about-button-prev,
@@ -226,6 +226,7 @@
   border: 1px solid #c3b49d;
   border-radius: 8px;
   padding: 12px;
+  margin: 0 !important;
 
   &:hover {
     border: 1px solid rgba(2, 6, 10, 0.6);
