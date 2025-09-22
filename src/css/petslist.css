@@ -55,6 +55,12 @@
   color: #fff;
 }
 
+.showmore-btn:hover,
+.showmore-btn:focus {
+  background: #eee9e3;
+  color: #02060a;
+}
+
 @media only screen and (min-width: 375px) {
   .showmore-btn {
     width: 335px;
