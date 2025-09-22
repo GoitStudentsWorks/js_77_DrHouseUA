@@ -5,3 +5,7 @@ import './js/helpers/swiper';
 import './js/helpers/accardion';
 import './js/makerequest';
 import './js/mobile';
+import './js/markup-comment';
+import './js/helpers/swiper-comment';
+import './js/petslist';
+

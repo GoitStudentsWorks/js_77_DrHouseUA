@@ -1,0 +1,56 @@
+import {
+  renderCategoryButtons,
+  renderFilteredCards,
+} from './helpers/render-functions';
+
+import axios from 'axios';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+export const api = axios.create({
+  baseURL: 'https://paw-hut.b.goit.study/',
+  timeout: 5000,
+  headers: { accept: 'application/json' },
+});
+
+export let allPets = []; // всі тваринки
+
+export async function fetchAllPets() {
+  const limit = 30;
+  let page = 1;
+  let allFetched = [];
+
+  try {
+    while (true) {
+      const response = await api.get('api/animals', {
+        params: { page, limit },
+      });
+
+      const pets = response.data.animals || [];
+      allFetched = [...allFetched, ...pets];
+
+      if (pets.length < limit) break;
+      page++;
+    }
+
+    allPets = allFetched;
+    renderFilteredCards();
+  } catch (error) {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вдалося завантажити тваринок.',
+      position: 'topRight',
+    });
+    console.error('Axios error:', error);
+  }
+}
+
+export async function fetchCategories() {
+  try {
+    const response = await api.get('api/categories');
+    const categories = response.data || [];
+    renderCategoryButtons(['Всі', ...categories.map(c => c.name)]);
+  } catch (error) {
+    console.error('Помилка завантаження категорій:', error);
+  }
+}

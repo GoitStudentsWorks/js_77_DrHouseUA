@@ -5,15 +5,15 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 // init Swiper:
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper-about', {
   // configure Swiper to use modules
 
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.swiper-about-button-next',
+    prevEl: '.swiper-about-button-prev',
   },
   pagination: {
-    el: '.swiper-pagination',
+    el: '.swiper-about-pagination',
     type: 'bullets',
     clickable: true,
   },
