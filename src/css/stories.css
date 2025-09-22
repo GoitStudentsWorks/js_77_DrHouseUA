@@ -18,7 +18,7 @@
 }
 
 .swiper-comment-slide {
-  background-color: #fff;
+  background-color: #f6f4f1;
 }
 
 .description-comment {
@@ -50,6 +50,7 @@
   border-radius: 8px;
   stroke: #0b0803;
   padding: 12px;
+  position: static !important;
 
   &:hover {
     border: 1px solid rgba(2, 6, 10, 0.6);
@@ -72,8 +73,21 @@
 
 .navigation-wrapper-comment {
   display: flex;
+  margin-top: 40px;
+  padding-left: 40px;
+  justify-content: space-between;
 }
 
 .star-container {
   display: flex;
+}
+
+.swiper-pagination.stories-pagination {
+  position: static;
+  width: 88px !important;
+}
+
+.swiper-arrow-wrapper-comment {
+  display: flex;
+  gap: 16px;
 }
