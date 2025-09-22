@@ -1,4 +1,4 @@
-import { getLimit, filterPetsByCategory } from '../services.js';
+import { getLimit, filterPetsByCategory, filterPetsByID } from '../services.js';
 import { allPets } from '../api.js';
 
 const gallery = document.querySelector('.gallery');
@@ -37,7 +37,6 @@ export function renderCards(pets) {
       <button class="pet-card-btn" id="${pet._id}">Дізнатись більше</button>
     `;
     gallery.appendChild(card);
-    console.log(pet.categories);
   });
 }
 
@@ -50,6 +49,44 @@ function renderCardCategories(categoriesArr) {
     </span>`;
   }
   return markup;
+}
+
+export function renderCardInModal(cardId = 1) {
+  const petById = filterPetsByID(cardId, allPets);
+  let cardMarkup = ``;
+
+  petById.forEach(
+    pet =>
+      (cardMarkup = `
+        <div class="detail-image-wrapper">
+          <img class="image-tamplete" src="${pet.image}"></img>
+        </div>
+        <div class="detail-descr-wrapper">
+          <div class="detail-descr-title">
+            <p>${pet.species}</p>
+            <h1 class="detail-pet-name">${pet.name}</h1>
+            <p>${pet.age}&nbsp;&nbsp;&nbsp;&nbsp;  ${pet.gender}</p>
+                    <button type="button" class="showmore-btn take-home-btn take-home-btn-tablet">
+            Взяти додому
+          </button>
+          </div>
+          <p><span class="modal-txt">Опис:  <br /></span>
+          ${pet.description}
+          </p>
+          <p><span class="modal-txt">Здоров'я:  <br /></span> 
+          ${pet.healthStatus}
+          </p>
+          <p><span class="modal-txt">Поведінка:</span> <br />
+          ${pet.behavior}
+          </p>
+          <button type="button" class="showmore-btn take-home-btn">
+            Взяти додому
+          </button>
+        </div>
+  `)
+  );
+
+  return cardMarkup;
 }
 
 export function renderCategoryButtons(names) {
