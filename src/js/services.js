@@ -15,3 +15,11 @@ export function filterPetsByID(ID, petsArray) {
   });
   return Pet;
 }
+
+export function scrollGallery() {
+  const card = document.querySelector('.pet-card');
+  if (!card) return;
+
+  const { height } = card.getBoundingClientRect();
+  window.scrollBy({ top: height * 2, behavior: 'smooth' });
+}
