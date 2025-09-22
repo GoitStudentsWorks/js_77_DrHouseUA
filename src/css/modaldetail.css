@@ -13,7 +13,7 @@ body.modal-open {
   width: 100vw;
   height: 100vh;
 
-  background-color: blueviolet;
+  background: rgba(0, 0, 0, 0.25);
   padding-top: 64px;
   padding-bottom: 64px;
   overflow-y: auto;
@@ -27,6 +27,20 @@ body.modal-open {
   width: 335px;
   height: 1012px;
   background: #f6f4f1;
+}
+
+@media only screen and (min-width: 767.9px) {
+  .modal-detail-card {
+    width: 704px;
+    height: 685px;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .modal-detail-card {
+    width: 1312px;
+    height: 650px;
+  }
 }
 
 .modal-detail-icon-close {
@@ -45,17 +59,59 @@ body.modal-open {
   gap: 32px;
 }
 
+@media only screen and (min-width: 767.9px) {
+  .detail-content {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .detail-content {
+    padding: 0 64px;
+  }
+}
+
 .image-tamplete {
   border-radius: 8px;
   width: 295px;
   height: 295px;
   background-color: aqua;
+  object-fit: cover;
 }
+@media only screen and (min-width: 767.9px) {
+  .image-tamplete {
+    width: 304px;
+    height: 450px;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .image-tamplete {
+    width: 576px;
+    height: 450px;
+  }
+}
+
 .detail-descr-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 557px;
+}
+
+@media only screen and (min-width: 767.9px) {
+  .detail-descr-wrapper {
+    width: 304px;
+    gap: 24px;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .detail-descr-wrapper {
+    width: 576px;
+    gap: 24px;
+    height: auto;
+  }
 }
 
 .detail-descr-title {
@@ -70,10 +126,92 @@ body.modal-open {
   padding: 12px 24px;
   width: 295px;
   height: 45px;
+  margin-top: 0;
+}
+@media only screen and (min-width: 767.9px) {
+  .take-home-btn {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .take-home-btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+.take-home-btn-tablet {
+  margin-top: 32px;
+  display: none;
+}
+
+@media only screen and (min-width: 767.9px) {
+  .take-home-btn-tablet {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .take-home-btn-tablet {
+    display: none;
+  }
+}
+
+.detail-pet-name {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .detail-pet-name {
+    font-size: 40px;
+  }
+}
+
+.detail-descr-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .detail-descr-wrapper {
+    height: 552px;
+  }
+}
+
+.detail-descr-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #02060a;
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .detail-descr-title {
+    font-size: 14px;
+  }
 }
 
 .modal-txt {
   font-weight: 600;
 
   color: #02060a;
+}
+
+@media only screen and (min-width: 1439.9px) {
+  .modal-txt {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .detail-descr-wrapper p {
+    font-size: 16px;
+  }
 }

@@ -1,5 +1,8 @@
+import { renderCardInModal } from './helpers/render-functions';
+
 const galleryEl = document.querySelector('.gallery');
 const modalPetInfoEl = document.querySelector('.modal-detail');
+const modalDetailContainerEl = document.querySelector('.detail-content');
 const bodyEl = document.querySelector('body');
 
 galleryEl.addEventListener('click', onBtnDetailClick);
@@ -11,9 +14,11 @@ document.addEventListener('keydown', function (event) {
 });
 
 function onBtnDetailClick(event) {
-  console.dir(event.target);
-
-  if (event.target.nodeName === 'IMG') {
+  if (event.target.nodeName === 'BUTTON') {
+    modalDetailContainerEl.insertAdjacentHTML(
+      'beforeend',
+      renderCardInModal(event.target.attributes.id.value)
+    );
     openModal();
   }
 }
@@ -25,9 +30,6 @@ function openModal() {
 }
 
 function onClickInModal(event) {
-  console.dir(event.target);
-  console.log('work in modal');
-  console.log(event.target.classList);
   if (
     (document.body.classList.contains('modal-open') &&
       event.target.nodeName === 'SECTION') ||
@@ -41,4 +43,5 @@ function closeModal() {
   modalPetInfoEl.classList.add('hide-modal');
   document.body.classList.remove('modal-open');
   bodyEl.removeEventListener('click', onClickInModal);
+  modalDetailContainerEl.innerHTML = '';
 }

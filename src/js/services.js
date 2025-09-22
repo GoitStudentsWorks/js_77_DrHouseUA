@@ -8,3 +8,10 @@ export function filterPetsByCategory(categoryName, petsArray) {
     pet.categories.some(cat => cat.name === categoryName)
   );
 }
+
+export function filterPetsByID(ID, petsArray) {
+  const Pet = petsArray.filter(pet => {
+    return pet._id === ID;
+  });
+  return Pet;
+}
