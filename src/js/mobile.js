@@ -25,13 +25,34 @@ links.forEach(link => {
 // Button get friend
 document.querySelectorAll('.mobile-nav-btn, .header-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const animalsSection = document.querySelector('#animals');
+    const animalsSection = document.querySelector('#pets-list');
     if (animalsSection) {
       animalsSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       });
     }
+    mobileMenu.classList.remove('active');
+  });
+});
+
+// close modal
+document.querySelectorAll('.mobile-nav-link, .nav-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    const targetId = link.getAttribute('href');
+    if (targetId && targetId.startsWith('#')) {
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+
+    const mobileMenu = document.getElementById('mobileMenu');
     mobileMenu.classList.remove('active');
   });
 });
