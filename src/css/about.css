@@ -194,11 +194,11 @@
 }
 
 .swiper-pagination-bullet {
-  width: 12px;
+  width: 10px;
   height: 10px;
   background-color: #999;
   opacity: 1;
-  border-radius: 12;
+  border-radius: 12px;
   margin: 0 4px;
 }
 

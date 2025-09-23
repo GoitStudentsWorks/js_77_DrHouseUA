@@ -76,7 +76,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-filled" width="20" height="19">
-          <use href="../svg/icons.svg#icon-star-filled"></use>
+          <use href="/icons.svg#icon-star-filled"></use>
         </svg>
       </div>`;
   }
@@ -85,7 +85,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-half" width="20" height="19">
-          <use href="../svg/icons.svg#icon-star-half"></use>
+          <use href="/icons.svg#icon-star-half"></use>
         </svg>
       </div>`;
   }
@@ -94,7 +94,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-empty" width="20" height="19">
-          <use href="../svg/icons.svg#icon-star-outline"></use>
+          <use href="/icons.svg#icon-star-outline"></use>
         </svg>
       </div>`;
   }
