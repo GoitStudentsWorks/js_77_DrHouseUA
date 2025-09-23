@@ -6,12 +6,12 @@
   height: 619px;
 }
 @media only screen and (min-width: 768px) {
-   .footer {
+  .footer {
     height: 469px;
   }
 }
 @media only screen and (min-width: 1440px) {
-   .footer {
+  .footer {
     height: 507px;
     padding: 64px 0;
   }
@@ -45,7 +45,7 @@
   gap: 32px;
 }
 @media only screen and (min-width: 768px) {
-   .footer-menu-list {
+  .footer-menu-list {
     flex-direction: row;
   }
 }
@@ -67,7 +67,18 @@
 .line-footer {
   height: 1px;
   background-color: rgba(2, 6, 10, 0.15);
-  margin: 15px 0px;
+  margin: 0 auto;
+  max-width: 335px;
+}
+@media only screen and (min-width: 768px) {
+  .line-footer {
+    max-width: 704px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .line-footer {
+    max-width: 1312px;
+  }
 }
 .footer-text {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -76,7 +87,7 @@
   margin: 30px 0px;
 }
 @media only screen and (min-width: 768px) {
-   .footer-text {
+  .footer-text {
     margin: 32px 0px;
   }
 }
