@@ -23,7 +23,7 @@ export function markupComment(data) {
     .map(res => {
       return `
       <div class="swiper-slide swiper-comment-slide">
-        <div class="rating value-${res.rate} star-svg half small">
+        <div class="rating value-${res.rate} star-svg half medium">
           <div class="star-container">
             ${generateStars(res.rate)}
           </div>
@@ -75,7 +75,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-filled" width="20" height="19">
-          <use href="/icons.svg#icon-star-filled"></use>
+          <use href="/public/icons.svg#icon-star-filled"></use>
         </svg>
       </div>`;
   }
@@ -84,7 +84,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-half" width="20" height="19">
-          <use href="/icons.svg#icon-star-half"></use>
+          <use href="/public/icons.svg#icon-star-half"></use>
         </svg>
       </div>`;
   }
@@ -93,7 +93,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-empty" width="20" height="19">
-          <use href="/icons.svg#icon-star-outline"></use>
+          <use href="/public/icons.svg#icon-star-outline"></use>
         </svg>
       </div>`;
   }

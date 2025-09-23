@@ -95,3 +95,17 @@
   display: flex;
   gap: 16px;
 }
+
+.star svg {
+  fill: black !important;
+  opacity: 1;
+}
+
+.star svg.star-filled,
+.star svg.star-half {
+  opacity: 1 !important;
+}
+
+.rating {
+  justify-content: flex-start !important;
+}
