@@ -1,10 +1,8 @@
 /* .about, */
-.hero-section,
 .faq,
 /* .pets-list, */
 .stories,
-.header,
-.footer {
+.header{
   display: none;
 }
 
