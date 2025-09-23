@@ -129,4 +129,6 @@ export function renderFilteredCards() {
 showMoreBtn.addEventListener('click', () => {
   currentPage += 1;
   renderFilteredCards();
+  // setTimeout(scrollGallery, 100);
+  // scrollGallery();
 });

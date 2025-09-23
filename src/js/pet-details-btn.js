@@ -39,7 +39,7 @@ function onClickInModal(event) {
   }
 }
 
-function closeModal() {
+export function closeModal() {
   modalPetInfoEl.classList.add('hide-modal');
   document.body.classList.remove('modal-open');
   bodyEl.removeEventListener('click', onClickInModal);
