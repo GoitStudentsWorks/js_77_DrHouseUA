@@ -15,7 +15,6 @@ modalDetail.addEventListener('click', e => {
 modalBtn.addEventListener('click', closeModalOrder);
 
 modalOrder.addEventListener('click', e => {
-  clg;
   const clickedBackdrop = !e.target.closest('.modal');
   const isModalOpen = modalOrder.classList.contains('is-open-order');
 
