@@ -33,6 +33,22 @@
 
 .logo {
   margin-right: 24px;
+  animation: pulse 2s infinite;
+  transform-origin: center;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.88;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 .nav {
   display: flex;
@@ -103,6 +119,7 @@
   border: none;
   background-color: transparent;
   padding: 12px;
+  cursor: pointer;
 }
 .mobile-menu-btn:hover {
   fill: #332c22;
@@ -122,6 +139,7 @@
   height: 40px;
   color: #fff;
   display: none;
+  cursor: pointer;
 }
 .header-btn:hover {
   background-color: #eee9e3;
@@ -242,6 +260,7 @@
   display: block;
   width: 100%;
   max-width: 375px;
+  cursor: pointer;
 }
 @media only screen and (min-width: 767.98px) {
   .mobile-nav-btn {
@@ -252,6 +271,7 @@
 .mobile-menu-close {
   border: none;
   stroke: #02060a;
+  background: transparent;
 }
 .mobile-menu-close:hover {
   fill: #332c22;
