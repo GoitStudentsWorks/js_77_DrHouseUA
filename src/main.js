@@ -8,3 +8,4 @@ import './js/markup-comment';
 import './js/helpers/swiper-comment';
 import './js/petslist';
 import './js/pet-details-btn';
+import 'css-star-rating/css/star-rating.min.css';
