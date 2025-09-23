@@ -40,7 +40,6 @@ export function markupComment(data) {
 }
 
 getAPI().then(data => {
-  console.log(data);
   markupComment(data);
 
   new Swiper('.stories-swiper', {
@@ -76,7 +75,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-filled" width="20" height="19">
-          <use href="/icons.svg#icon-star-filled"></use>
+          <use href="/js/icons.svg#icon-star-filled"></use>
         </svg>
       </div>`;
   }
@@ -85,7 +84,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-half" width="20" height="19">
-          <use href="/icons.svg#icon-star-half"></use>
+          <use href="/js/icons.svg#icon-star-half"></use>
         </svg>
       </div>`;
   }
@@ -94,7 +93,7 @@ function generateStars(rate) {
     stars += `
       <div class="star">
         <svg class="star-empty" width="20" height="19">
-          <use href="/icons.svg#icon-star-outline"></use>
+          <use href="/js/icons.svg#icon-star-outline"></use>
         </svg>
       </div>`;
   }
