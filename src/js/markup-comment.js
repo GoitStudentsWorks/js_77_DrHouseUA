@@ -28,7 +28,7 @@ export function markupComment(data) {
             ${generateStars(res.rate)}
           </div>
         </div>
-        <div>
+        <div class="stories-comment-wrapper">
           <p class="description-comment">${res.description}</p>
           <p class="author-comment">${res.author}</p>
         </div>

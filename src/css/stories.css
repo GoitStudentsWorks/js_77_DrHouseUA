@@ -109,3 +109,10 @@
 .rating {
   justify-content: flex-start !important;
 }
+
+.stories-comment-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+}
