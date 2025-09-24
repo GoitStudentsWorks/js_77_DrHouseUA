@@ -23,3 +23,12 @@ export function scrollGallery() {
   const { height } = card.getBoundingClientRect();
   window.scrollBy({ top: height * 2, behavior: 'smooth' });
 }
+
+export function showElement(element) {
+  console.log(element);
+  element.classList.remove('hidden');
+}
+
+export function hideElement(element) {
+  element.classList.add('hidden');
+}

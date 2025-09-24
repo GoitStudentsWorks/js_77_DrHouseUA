@@ -1,9 +1,18 @@
-import { getLimit, filterPetsByCategory, filterPetsByID } from '../services.js';
+import {
+  getLimit,
+  filterPetsByCategory,
+  filterPetsByID,
+  showElement,
+  hideElement,
+} from '../services.js';
 import { allPets } from '../api.js';
 
 const gallery = document.querySelector('.gallery');
 const categoryContainer = document.querySelector('.category-nav');
 const showMoreBtn = document.querySelector('.showmore-btn');
+const loaderCardsEl = document.querySelector('.loader-cards-backdrop');
+
+console.log(loaderCardsEl);
 
 let currentCategory = 'Всі';
 export let currentPage = 1;
@@ -12,10 +21,12 @@ export function clearGallery() {
   gallery.innerHTML = '';
 }
 
-export function renderCards(pets) {
+export function renderCards(pets, markNew = false) {
   pets.forEach(pet => {
     const card = document.createElement('article');
     card.classList.add('pet-card');
+    if (markNew) card.classList.add('new-card');
+
     card.innerHTML = `
       <div class="card-img-wrapper">
         <img class="pet-card-image" src="${
@@ -25,9 +36,9 @@ export function renderCards(pets) {
       <div class="pet-card-info">
         <span class="pet-card-type">${pet.species}</span>
         <h3 class="pet-card-name">${pet.name}</h3>
-       <span class="pet-category-wrapper">${renderCardCategories(
-         pet.categories
-       )}</span>
+        <span class="pet-category-wrapper">${renderCardCategories(
+          pet.categories
+        )}</span>
         <div class="pet-card-meta">
           <p class="pet-card-age">${pet.age}</p>
           <p class="pet-card-gender">${pet.gender}</p>
@@ -114,13 +125,17 @@ export function renderCategoryButtons(names) {
   });
 }
 
-export function renderFilteredCards() {
+export function renderFilteredCards({ append = false } = {}) {
   const limit = getLimit();
   const filtered = filterPetsByCategory(currentCategory, allPets);
   const petsToRender = filtered.slice(0, currentPage * limit);
 
-  clearGallery();
-  renderCards(petsToRender);
+  if (!append) clearGallery();
+
+  const startIndex = (currentPage - 1) * limit;
+  const newPets = petsToRender.slice(startIndex, currentPage * limit);
+
+  renderCards(append ? newPets : petsToRender, append);
 
   const localTotalPages = Math.ceil(filtered.length / limit);
   showMoreBtn.style.display = currentPage >= localTotalPages ? 'none' : 'block';
@@ -128,7 +143,29 @@ export function renderFilteredCards() {
 
 showMoreBtn.addEventListener('click', () => {
   currentPage += 1;
-  renderFilteredCards();
-  // setTimeout(scrollGallery, 100);
-  // scrollGallery();
+  showElement(loaderCardsEl);
+  hideElement(showMoreBtn);
+
+  document
+    .querySelectorAll('.new-card')
+    .forEach(el => el.classList.remove('new-card'));
+
+  renderFilteredCards({ append: true });
+  setTimeout(() => hideElement(loaderCardsEl), 200);
+
+  setTimeout(scrollToFirstNewCard(74), 200);
+
+  setTimeout(() => showElement(showMoreBtn), 200);
 });
+
+function scrollToFirstNewCard(offset = 74) {
+  const firstNewCard = document.querySelector('.gallery .new-card');
+  if (!firstNewCard) return;
+
+  const cardTop = firstNewCard.getBoundingClientRect().top + window.pageYOffset;
+
+  window.scrollTo({
+    top: cardTop - offset,
+    behavior: 'smooth',
+  });
+}
