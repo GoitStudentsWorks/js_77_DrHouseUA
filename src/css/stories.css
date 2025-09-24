@@ -30,6 +30,7 @@
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 32px;
+  height: 200px;
 }
 
 .author-comment {
@@ -88,7 +89,6 @@
 
 .swiper-pagination.stories-pagination {
   position: static;
-  width: 95px !important;
 }
 
 .swiper-arrow-wrapper-comment {
@@ -115,4 +115,10 @@
   flex-direction: column;
   justify-content: space-between;
   height: 90%;
+}
+
+.star-container {
+  margin: 0;
+  margin-bottom: 32px;
+  margin-left: 0 !important;
 }
