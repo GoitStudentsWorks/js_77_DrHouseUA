@@ -21,16 +21,23 @@ export async function fetchAllPets() {
   let allFetched = [];
 
   try {
+    const limit = 20;
+    let page = 1;
+    let allFetched = [];
+
     while (true) {
-      const response = await api.get('api/animals', {
-        params: { page, limit },
-      });
+      const requests = Array.from({ length: 5 }, (_, i) =>
+        api.get('api/animals', {
+          params: { page: page + i, limit },
+        })
+      );
 
-      const pets = response.data.animals || [];
-      allFetched = [...allFetched, ...pets];
+      const responses = await Promise.all(requests);
+      const batch = responses.flatMap(res => res.data.animals || []);
+      allFetched = [...allFetched, ...batch];
 
-      if (pets.length < limit) break;
-      page++;
+      if (batch.length < limit * requests.length) break;
+      page += requests.length;
     }
 
     allPets = allFetched;
