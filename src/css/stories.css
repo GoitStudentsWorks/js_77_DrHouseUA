@@ -1,3 +1,7 @@
+.stories {
+  padding: 64px 0;
+}
+
 .headers-comment h2 {
   text-align: center;
   font-weight: 700;
@@ -85,7 +89,6 @@
 
 .swiper-pagination.stories-pagination {
   position: static;
-  width: 88px !important;
 }
 
 .swiper-arrow-wrapper-comment {
@@ -93,8 +96,29 @@
   gap: 16px;
 }
 
+.star svg {
+  fill: black !important;
+  opacity: 1;
+}
+
+.star svg.star-filled,
+.star svg.star-half {
+  opacity: 1 !important;
+}
+
+.rating {
+  justify-content: flex-start !important;
+}
+
+.stories-comment-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+}
+
 .star-container {
   margin: 0;
   margin-bottom: 32px;
-  margin-left: -2px;
+  margin-left: 0 !important;
 }

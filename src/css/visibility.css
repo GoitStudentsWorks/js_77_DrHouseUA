@@ -1,10 +1,8 @@
-.about,
-.hero-section,
+/* .about, */
 .faq,
-.pets-list,
+/* .pets-list, */
 .stories,
-.header,
-.footer {
+.header{
   display: none;
 }
 
@@ -47,9 +45,9 @@
 
 .about,
 /* .hero, */
-/* .petslist, */
+.petslist,
 .stories,
-/* .header, */
+.header,
 /* .footer, */
 .faq {
   display: inherit;
