@@ -26,6 +26,7 @@
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 32px;
+  height: 200px;
 }
 
 .author-comment {
@@ -90,4 +91,10 @@
 .swiper-arrow-wrapper-comment {
   display: flex;
   gap: 16px;
+}
+
+.star-container {
+  margin: 0;
+  margin-bottom: 32px;
+  margin-left: -2px;
 }
