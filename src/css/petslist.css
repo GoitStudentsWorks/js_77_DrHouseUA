@@ -61,6 +61,17 @@
   color: #02060a;
 }
 
+@media only screen and (max-width: 374px) {
+  .showmore-btn {
+    max-width: 335px;
+  }
+  .showmore-btn {
+    max-width: 192px;
+    font-size: 16px;
+    margin-top: 40px;
+  }
+}
+
 @media only screen and (min-width: 375px) {
   .showmore-btn {
     width: 335px;
@@ -134,7 +145,6 @@
 
   border-radius: 16px;
   padding: 12px;
-  width: 335px;
   background: #eee9e3;
   height: -webkit-fill-available;
 }
@@ -202,8 +212,6 @@
   border: 1px solid #02060a;
   border-radius: 8px;
   padding: 8px 20px;
-  width: 311px;
-
   font-size: 14px;
 }
 
