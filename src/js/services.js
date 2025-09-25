@@ -25,7 +25,6 @@ export function scrollGallery() {
 }
 
 export function showElement(element) {
-  console.log(element);
   element.classList.remove('hidden');
 }
 

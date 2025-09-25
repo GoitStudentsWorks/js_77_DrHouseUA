@@ -12,8 +12,6 @@ const categoryContainer = document.querySelector('.category-nav');
 const showMoreBtn = document.querySelector('.showmore-btn');
 const loaderCardsEl = document.querySelector('.loader-cards-backdrop');
 
-console.log(loaderCardsEl);
-
 let currentCategory = 'Всі';
 export let currentPage = 1;
 

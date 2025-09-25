@@ -4,12 +4,13 @@ const modalOrder = document.querySelector('.modal-order');
 const modalBtn = document.querySelector('.modal-btn');
 const modalDetail = document.querySelector('.modal-detail');
 const modalForm = document.querySelector('.modal-form');
-const loader = document.querySelector('#form-loader');
+const loaderBackdrop = document.querySelector('#loader-backdrop');
 
 const scriptURL =
   'https://script.google.com/macros/s/AKfycbxvMWn2o1KlD0kaVSKKSwRLIwg2s2lHDLJmxp62IilpEI-At8MMNph678NHE8LfZELkVA/exec';
 
 https: modalDetail.addEventListener('click', e => {
+  e.preventDefault();
   if (e.target.nodeName === 'BUTTON') {
     modalOrder.classList.add('is-open-order');
     document.body.classList.add('modal-order', 'is-open-order');
@@ -82,8 +83,6 @@ modalForm.addEventListener('submit', e => {
       hideLoader();
     });
 });
-
-const loaderBackdrop = document.querySelector('#loader-backdrop');
 
 function showLoader() {
   loaderBackdrop.classList.remove('hidden');
