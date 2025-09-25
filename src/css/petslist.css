@@ -53,12 +53,30 @@
 
   font-size: 14px;
   color: #fff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.showmore-btn:hover,
-.showmore-btn:focus {
-  background: #eee9e3;
-  color: #02060a;
+.showmore-btn:hover {
+  color: var(--color-scheme-1-text);
+  background: var(--color-mariner-lighter);
+}
+.showmore-btn:active {
+  color: var(--color-scheme-1-text);
+  box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+  background: var(--color-mariner-lighter);
+}
+
+@media only screen and (max-width: 374px) {
+  .showmore-btn {
+    max-width: 335px;
+  }
+  .showmore-btn {
+    max-width: 192px;
+    font-size: 16px;
+    margin-top: 40px;
+  }
 }
 
 @media only screen and (min-width: 375px) {
@@ -134,7 +152,6 @@
 
   border-radius: 16px;
   padding: 12px;
-  width: 335px;
   background: #eee9e3;
   height: -webkit-fill-available;
 }
@@ -202,14 +219,18 @@
   border: 1px solid #02060a;
   border-radius: 8px;
   padding: 8px 20px;
-  width: 311px;
-
   font-size: 14px;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.pet-card-btn:hover,
-.pet-card-btn:focus {
-  background: #c3b49d;
+.pet-card-btn:hover {
+  background: var(--color-mariner-light);
+}
+
+.pet-card-btn:active {
+  box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+  background: var(--color-mariner-light);
 }
 
 @media only screen and (min-width: 768px) {
