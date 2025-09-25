@@ -189,7 +189,7 @@
   border: 1px solid var(--opacity-transparent);
   border-radius: 100px;
   padding: 4px 10px;
-  background: var(--opacity-neutral-darkest-50);
+  background: var(--opacity-neutral-darkest-5);
 
   display: inline-block;
   width: auto;
