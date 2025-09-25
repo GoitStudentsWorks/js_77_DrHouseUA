@@ -22,7 +22,7 @@
 }
 
 .swiper-comment-slide {
-  background-color: #f6f4f1;
+  background-color: var(--color-mariner-lightest);
 }
 
 .description-comment {
@@ -48,21 +48,21 @@
 .swiper-comment-button-next {
   width: 48px !important;
   height: 48px !important ;
-  background-color: #eee9e3;
+  background-color: var(--color-mariner-lighter);
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #c3b49d;
+  border: 1px solid var(--color-mariner);
   border-radius: 8px;
   stroke: #0b0803;
   padding: 12px;
   position: static !important;
 
   &:hover {
-    border: 1px solid rgba(2, 6, 10, 0.6);
+    border: 1px solid var(--opacity-neutral-darkest-60);
   }
 
   &:focus {
-    border: 1px solid rgba(2, 6, 10, 0.6);
+    border: 1px solid var(--opacity-neutral-darkest-60);
   }
 
   &:active {
@@ -71,7 +71,7 @@
   }
 
   &:disabled {
-    border: 1px solid #f6f4f1;
+    border: 1px solid var(--color-mariner-lightest);
     opacity: 0.4;
   }
 }

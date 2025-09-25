@@ -13,7 +13,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-align: center;
-  color: #02060a;
+  color: var(--color-neutral-darkest);
   margin-bottom: 16px;
 }
 
@@ -21,7 +21,7 @@
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
-  color: #02060a;
+  color: var(--color-neutral-darkest);
   margin-bottom: 32px;
 }
 
@@ -52,7 +52,7 @@
   margin-top: 40px;
 
   font-size: 14px;
-  color: #fff;
+  color: var(--color-white);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -128,10 +128,10 @@
 }
 
 .active-category {
-  border: 1px solid rgba(255, 255, 255, 0);
+  border: 1px solid --opacity-transparent;
   border-radius: 100px;
   padding: 10px 16px;
-  background: #eee9e3;
+  background: var(--color-mariner-lighter);
 }
 
 /* #region Gallery */
@@ -152,7 +152,7 @@
 
   border-radius: 16px;
   padding: 12px;
-  background: #eee9e3;
+  background: var(--color-mariner-lighter);
   height: -webkit-fill-available;
 }
 
@@ -174,7 +174,7 @@
   font-size: 20px;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: #02060a;
+  color: var(--color-neutral-darkest);
 }
 
 .pet-category-wrapper {
@@ -186,10 +186,10 @@
 }
 
 .pet-category {
-  border: 1px solid rgba(255, 255, 255, 0);
+  border: 1px solid var(--opacity-transparent);
   border-radius: 100px;
   padding: 4px 10px;
-  background: rgba(2, 6, 10, 0.05);
+  background: var(--opacity-neutral-darkest-50);
 
   display: inline-block;
   width: auto;
@@ -216,7 +216,7 @@
   font-size: 12px;
 }
 .pet-card-btn {
-  border: 1px solid #02060a;
+  border: 1px solid var(--color-neutral-darkest);
   border-radius: 8px;
   padding: 8px 20px;
   font-size: 14px;

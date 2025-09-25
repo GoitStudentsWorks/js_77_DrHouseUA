@@ -100,7 +100,20 @@ export function renderCardInModal(cardId = 1) {
 
 export function renderCategoryButtons(names) {
   categoryContainer.innerHTML = '';
-  names.forEach(name => {
+
+  const desiredOrder = [
+    'Всі',
+    'Собаки',
+    'Коти',
+    'Кролики',
+    'Гризуни',
+    'Птахи',
+    'Тварини з особливими потребами',
+    'Терміново шукають дім',
+  ]; // твій порядок
+  const sortedNames = desiredOrder.filter(name => names.includes(name));
+
+  sortedNames.forEach(name => {
     const btn = document.createElement('button');
     btn.classList.add('category-item');
     btn.textContent = name;
