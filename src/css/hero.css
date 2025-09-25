@@ -42,13 +42,14 @@
 }
 
 @media only screen and (min-width: 1440px) and (min-resolution: 192dpi) {
-  .hero-container {
+  .hero-section {
     background-image: url(../img/hero/catdog@2x.webp);
   }
 }
 
 .title-hero {
   font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
